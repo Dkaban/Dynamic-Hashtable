@@ -2,9 +2,7 @@
 //  HashTableDriver.java
 //
 //  AUTHOR: DUSTIN KABAN
-//  ID: T00663749
 //  DATE: APRIL 14th, 2021
-//  COURSE INFO: COMP 2231 ASSIGNMENT 5, QUESTION 3
 //
 //  This class demonstrates the functionality of the DynamicHashTable.java class
 //*************************************************************************************
