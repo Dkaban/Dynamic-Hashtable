@@ -2,7 +2,9 @@
 //  DynamicHashTable.java
 //
 //  AUTHOR: DUSTIN KABAN
+//  ID: T00663749
 //  DATE: APRIL 13th, 2021
+//  COURSE INFO: COMP 2231 ASSIGNMENT 5, QUESTION 3
 //
 //  This is an implementation of a hash table, that allows for dynamic resizing
 //  and uses the extraction method with division using the last three digits of the ISBN mod the array length
@@ -58,7 +60,36 @@ public class DynamicHashTable
     public int find(Book book)
     {
         //Return the hashAddress.  It will return -1 if it is not found
-        return locateBookInHashTable(book);
+        //return locateBookInHashTable(book);
+        //Get the last 3 digits from the books ISBN
+        String tempISBN = book.getISBN();
+        int digitsFromISBN = Integer.parseInt(tempISBN.substring(tempISBN.length() - 3));
+        int hashAddress = digitsFromISBN % bookArray.length;
+
+        //If the ISBN's match, we found the element so just remove it.
+        if(book.getISBN().equals(bookArray[hashAddress].getISBN()))
+        {
+            bookArray[hashAddress] = new Book("","0");
+        }
+        else //We need to loop through the array to find the index
+        {
+            //We need to use division to find a new spot for it
+            for(int i=0;i<bookArray.length;i++)
+            {
+                hashAddress = (digitsFromISBN + i) % bookArray.length;
+
+                if(bookArray[hashAddress].getISBN().equals(book.getISBN()))
+                {
+                    //Found empty index
+                    return hashAddress;
+                }
+                else
+                {
+                    hashAddress = -1;
+                }
+            }
+        }
+        return hashAddress;
     }
 
     private int locateBookInHashTable(Book book)
