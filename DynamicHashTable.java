@@ -2,9 +2,7 @@
 //  DynamicHashTable.java
 //
 //  AUTHOR: DUSTIN KABAN
-//  ID: T00663749
 //  DATE: APRIL 13th, 2021
-//  COURSE INFO: COMP 2231 ASSIGNMENT 5, QUESTION 3
 //
 //  This is an implementation of a hash table, that allows for dynamic resizing
 //  and uses the extraction method with division using the last three digits of the ISBN mod the array length
